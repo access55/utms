@@ -8,6 +8,11 @@ defineOptions({
 const websites = [
   'https://a55.tech/smart-capital/estoque',
   'https://a55.tech/smart-capital/antecipacao',
+  'https://a55.tech/smart-capital/conta-digital',
+  'https://a55.tech/smart-capital/investimento',
+  'https://a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
+  'https://a55.tech/solucoes/para-franquias/franqueados',
+  'https://a55.tech/solucoes/para-parceiros/embedded-finance',
 ]
 
 const sourceMap: any = {
