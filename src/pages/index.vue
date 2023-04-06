@@ -6,13 +6,13 @@ defineOptions({
 })
 
 const websites = [
-  'https://a55.tech/smart-capital/estoque',
-  'https://a55.tech/smart-capital/antecipacao',
-  'https://a55.tech/smart-capital/conta-digital',
-  'https://a55.tech/smart-capital/investimento',
-  'https://a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
-  'https://a55.tech/solucoes/para-franquias/franqueados',
-  'https://a55.tech/solucoes/para-parceiros/embedded-finance',
+  'https://www.a55.tech/smart-capital/estoque',
+  'https://www.a55.tech/smart-capital/antecipacao',
+  'https://www.a55.tech/smart-capital/conta-digital',
+  'https://www.a55.tech/smart-capital/investimento',
+  'https://www.a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
+  'https://www.a55.tech/solucoes/para-franquias/franqueados',
+  'https://www.a55.tech/solucoes/para-parceiros/embedded-finance',
 ]
 
 const sourceMap: any = {
