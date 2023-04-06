@@ -41,7 +41,7 @@ const sourceMap: any = {
 
 const sources = Object.keys(sourceMap)
 
-const website = $ref('https://a55.tech/smart-capital/estoque')
+const website = $ref('https://www.a55.tech/smart-capital/estoque')
 const source = $ref('direct')
 const campaign = $ref('') // texto livre
 const copyText = ref('COPIAR')
