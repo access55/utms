@@ -33,7 +33,7 @@ const sourceMap: any = {
   prospection: 'outbound',
   indication: 'outbound',
   relationship: 'outbound',
-  communities: 'outbound',
+  communities: 'partners',
   integration_partner: 'partners',
   white_label: 'partners',
   referral: 'partners',
