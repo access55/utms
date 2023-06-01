@@ -8,6 +8,7 @@ defineOptions({
 const websites = [
   'https://www.a55.tech/smart-capital/estoque',
   'https://www.a55.tech/smart-capital/antecipacao',
+  'https://www.a55.tech/smart-capital/estoque-e-antecipacao',
   'https://www.a55.tech/smart-capital/conta-digital',
   'https://www.a55.tech/smart-capital/investimento',
   'https://www.a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
