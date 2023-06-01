@@ -35,6 +35,7 @@ const sourceMap: any = {
   relationship: 'outbound',
   communities: 'partners',
   integration_partner: 'partners',
+  sales_partner: 'partners',
   white_label: 'partners',
   referral: 'partners',
 }
