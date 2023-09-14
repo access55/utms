@@ -6,14 +6,15 @@ defineOptions({
 })
 
 const websites = [
-  'https://www.a55.tech/smart-capital/estoque',
-  'https://www.a55.tech/smart-capital/antecipacao',
-  'https://www.a55.tech/smart-capital/estoque-e-antecipacao',
-  'https://www.a55.tech/smart-capital/conta-digital',
-  'https://www.a55.tech/smart-capital/investimento',
-  'https://www.a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
-  'https://www.a55.tech/solucoes/para-franquias/franqueados',
-  'https://www.a55.tech/solucoes/para-parceiros/embedded-finance',
+  'https://smart-capital.a55.tech/cadastro',
+  'https://a55.tech/smart-capital/estoque',
+  'https://a55.tech/smart-capital/antecipacao',
+  'https://a55.tech/smart-capital/estoque-e-antecipacao',
+  'https://a55.tech/smart-capital/conta-digital',
+  'https://a55.tech/smart-capital/investimento',
+  'https://a55.tech/solucoes/para-investidores/infraestrutura-de-capitais',
+  'https://a55.tech/solucoes/para-franquias/franqueados',
+  'https://a55.tech/solucoes/para-parceiros/embedded-finance',
 ]
 
 const sourceMap: any = {
@@ -42,32 +43,46 @@ const sourceMap: any = {
 }
 
 const sources = Object.keys(sourceMap)
+const contents = $ref(websites.map(w => w.split('/').pop() || null).filter(w => !!w && w !== 'cadastro'))
 
-const website = $ref('https://www.a55.tech/smart-capital/estoque')
+const website = $ref(websites[0])
 const source = $ref('direct')
 const campaign = $ref('') // texto livre
+const content = $ref('antecipacao')
 const copyText = ref('COPIAR')
 
 const utms = computed(() => {
   const map = {
     source,
     channel: sourceMap[source],
-    campaign,
-    content: website.split('/').pop(),
+    campaign: campaign ? normalizeText(campaign) : null,
+    content,
   }
   return map
 })
 
+function normalizeText(text: string) {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036F]/g, '')
+    .toLowerCase()
+    .replace(/\s/g, '_')
+}
+
 const result = computed(() => {
   const encode = (s: string) => encodeURIComponent(s)
-  let res = website
-  if (utms.value.campaign)
-    res = res.concat('?utm_campaign=', encode(utms.value.campaign))
+  let query = ''
+
+  if (utms.value.content)
+    query += `${query ? '&' : ''}utm_content=${encode(utms.value.content)}`
 
   if (utms.value.source !== 'direct')
-    res = res.concat('&utm_source=', encode(utms.value.source))
+    query += `${query ? '&' : ''}utm_source=${encode(utms.value.source)}`
 
-  return res
+  if (utms.value.campaign)
+    query += `${query ? '&' : ''}utm_campaign=${encode(utms.value.campaign)}`
+
+  return `${website}${query ? '?' : ''}${query}`
 })
 
 onMounted(() => {
@@ -112,6 +127,18 @@ onMounted(() => {
           v-model="source"
           :options="sources"
           placeholder="utm_source"
+          autocomplete="false"
+        />
+      </div>
+
+      <div>
+        <label for="source">
+          UTM Content <span color-red>*</span>
+        </label>
+        <TheSelect
+          v-model="content"
+          :options="contents"
+          placeholder="utm_content"
           autocomplete="false"
         />
       </div>
