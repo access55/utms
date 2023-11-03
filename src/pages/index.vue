@@ -43,7 +43,10 @@ const sourceMap: any = {
 }
 
 const sources = Object.keys(sourceMap)
-const contents = $ref(websites.map(w => w.split('/').pop() || null).filter(w => !!w && w !== 'cadastro'))
+const contents = $ref([
+  'duplicata',
+  ...websites.map(w => w.split('/').pop() || null).filter(w => !!w && w !== 'cadastro'),
+])
 
 const website = $ref(websites[0])
 const source = $ref('direct')
